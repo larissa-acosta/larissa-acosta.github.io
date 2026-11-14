@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Larissa Costa | Machine learning portfolio</title>
+<meta name="description" content="Computer Science student at PUCPR working on machine learning, time series, data streams and 3D data. Projects, models and research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5F9; --surface:#FFFFFF; --ink:#16213A; --muted:#55607A; --line:#D5DAE6;
+  --accent:#2447D6; --flag:#C2570C; --chip:#E6EAF5;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1424; --surface:#151D33; --ink:#E7EAF3; --muted:#9AA5C0; --line:#2A3452;
+    --accent:#8FA6FF; --flag:#FF9B54; --chip:#1E2845;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1424; --surface:#151D33; --ink:#E7EAF3; --muted:#9AA5C0; --line:#2A3452;
+  --accent:#8FA6FF; --flag:#FF9B54; --chip:#1E2845;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1rem}
+@media(min-width:700px){.wrap{padding:0 2rem}}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
+header.top strong{font-family:Literata,serif;font-weight:600}
+nav a{margin-left:1.25rem;color:var(--muted);text-decoration:none;font-weight:500}
+nav a:hover{color:var(--ink)}
+/* hero */
+.hero{padding:2.5rem 0 1rem}
+h1{font-family:Literata,serif;font-weight:700;font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.04;letter-spacing:-.02em;margin:0 0 1.25rem;max-width:14ch}
+.lede{font-size:1.15rem;max-width:40rem;color:var(--muted);margin:0 0 1.5rem}
+.lede b{color:var(--ink);font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 2.5rem;padding:0;list-style:none}
+.links a{display:inline-block;padding:.5rem .95rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+figure.signal{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1rem .75rem}
+figure.signal svg{display:block;width:100%;height:auto}
+figure.signal figcaption{font-size:.85rem;color:var(--muted);margin-top:.5rem}
+.legend span{display:inline-flex;align-items:center;gap:.4rem;margin-right:1rem}
+.legend i{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}
+#line{stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linejoin:round}
+#thr{stroke:var(--flag);stroke-dasharray:5 5;stroke-width:1.2}
+.dot{fill:var(--flag)}
+@media(prefers-reduced-motion:no-preference){
+  #line{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 2.2s ease-out .2s forwards}
+  .dot{opacity:0;animation:pop .3s ease-out forwards}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+/* sections */
+section{padding:3.5rem 0 0}
+h2{font-family:Literata,serif;font-weight:600;font-size:1.7rem;margin:0 0 1.25rem;letter-spacing:-.01em}
+.project{display:grid;gap:.75rem 2rem;padding:1.6rem 0;border-top:1px solid var(--line)}
+@media(min-width:760px){.project{grid-template-columns:15rem 1fr}}
+.project h3{font-family:Literata,serif;font-weight:600;font-size:1.25rem;line-height:1.25;margin:0 0 .4rem}
+.metric{font-family:Literata,serif;font-size:1.05rem;color:var(--ink)}
+.metric small{display:block;font-family:"Instrument Sans",sans-serif;font-size:.85rem;color:var(--muted)}
+.project p{margin:0 0 .8rem;max-width:42rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .8rem;padding:0;list-style:none}
+.tags li{background:var(--chip);border-radius:6px;padding:.15rem .55rem;font-size:.85rem}
+.pl{font-weight:500}
+.pl a{margin-right:1rem}
+.badge{display:inline-block;font-size:.85rem;font-weight:600;color:var(--flag);margin-bottom:.35rem}
+.wip{opacity:.95}
+.about p{max-width:40rem}
+footer{padding:4rem 0 3rem;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <strong>Larissa Costa</strong>
+    <nav aria-label="Sections"><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main>
+  <div class="hero">
+    <h1>Machine learning that holds up to scrutiny.</h1>
+    <p class="lede">I'm <b>Larissa Cristina Alves da Costa</b>, a Computer Science student at PUCPR in Curitiba, Brazil. I work on time series, imbalanced data, data streams and 3D data, and I'm now building language-model applications in Portuguese. I write the code, prepare the datasets and write up the results.</p>
+    <ul class="links" id="contact">
+      <li><a href="https://github.com/larissa-acosta">GitHub</a></li>
+      <li><a href="https://huggingface.co/larissaac">Hugging Face</a></li>
+      <li><a href="https://www.kaggle.com/larissaacosta">Kaggle</a></li>
+      <li><a href="https://www.linkedin.com/in/larissa-cristina-costa">LinkedIn</a></li>
+    </ul>
+
+    <figure class="signal">
+      <svg id="chart" viewBox="0 0 900 220" role="img" aria-label="Illustration of a consumption time series with points above a threshold marked as bottlenecks"></svg>
+      <figcaption>
+        <span class="legend"><span><i style="background:var(--accent)"></i>consumption</span><span><i style="background:var(--flag)"></i>above threshold: flagged as bottleneck</span></span>
+        Illustration of the idea behind my energy project, drawn from synthetic data.
+      </figcaption>
+    </figure>
+  </div>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <div>
+        <span class="badge">2nd place, PUCPR Project Gallery</span>
+        <div class="metric">R² 0.917<small>MAE 5.00 kWh on held-out data</small></div>
+      </div>
+      <div>
+        <h3>Energy bottleneck detection in a steel plant</h3>
+        <p>An LSTM forecasts consumption and flags periods where reality is far above the prediction. A GRU autoencoder offers a second view, and the comparison shows its threshold needs careful calibration. One year of 15-minute data from a real plant. The trained model and a live demo are public.</p>
+        <ul class="tags"><li>LSTM</li><li>GRU autoencoder</li><li>Time series</li><li>Anomaly detection</li><li>TensorFlow</li></ul>
+        <div class="pl"><a href="https://github.com/larissa-acosta/ml-portfolio/tree/main/projects/energy-bottlenecks">Code</a><a href="https://huggingface.co/larissaac/steel-energy-lstm">Model</a><a href="https://huggingface.co/spaces/larissaac/steel-energy-bottlenecks">Live demo</a></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <div class="metric">AUC 0.88<small>macro-F1 0.71 with 5.7% positive cases</small></div>
+      </div>
+      <div>
+        <h3>Heart attack prediction on 445,000 survey records</h3>
+        <p>Only 1 in 17 records is a positive case, so accuracy would be misleading. Resampling and scaling run inside each cross-validation fold to prevent leakage, and a Friedman test with Nemenyi post-hoc checks whether the models really differ. Gradient Boosting beats Logistic Regression significantly, while Logistic Regression catches more cases.</p>
+        <ul class="tags"><li>Imbalanced learning</li><li>SMOTE</li><li>Gradient Boosting</li><li>Statistical testing</li><li>scikit-learn</li></ul>
+        <div class="pl"><a href="https://github.com/larissa-acosta/ml-portfolio/tree/main/projects/heart-attack-brfss">Code and write-up</a></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <span class="badge">CNPq research fellowship</span>
+        <div class="metric">6 algorithms<small>34 real and synthetic streams</small></div>
+      </div>
+      <div>
+        <h3>Ensemble learning for data streams</h3>
+        <p>A common evaluation protocol for six ensemble methods under concept drift, comparing accuracy, Kappa, time and memory. No algorithm wins everywhere, and strong results on synthetic streams do not always carry over to real ones. Advisor: Prof. Dr. Fabrício Enembreck.</p>
+        <ul class="tags"><li>Concept drift</li><li>Ensembles</li><li>MOA</li><li>Prequential evaluation</li><li>Java</li></ul>
+        <div class="pl"><a href="https://github.com/larissa-acosta/ml-portfolio/tree/main/projects/stream-ensembles">Findings and setup</a></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <div class="metric">Half the points<small>within about 3 points of accuracy</small></div>
+      </div>
+      <div>
+        <h3>How many points does a 3D classifier need?</h3>
+        <p>A controlled benchmark of 3 samplers, 4 model variants and 2 datasets over 3 seeds. On real scans (ScanObjectNN), 512 points kept accuracy within 2.8 points and made DGCNN 58% faster to train. On CAD models (ModelNet40), 256 points was enough. Rare classes suffer first when density drops.</p>
+        <ul class="tags"><li>Point clouds</li><li>PointNet++</li><li>DGCNN</li><li>Triangle-Net</li><li>PyTorch</li></ul>
+        <div class="pl"><a href="https://github.com/larissa-acosta/point-cloud-density-classification">Code</a></div>
+      </div>
+    </article>
+
+    <article class="project wip">
+      <div>
+        <span class="badge">In progress</span>
+        <div class="metric">20,000 images<small>real vs. Stable Diffusion 1.5</small></div>
+      </div>
+      <div>
+        <h3>Detecting AI-generated images</h3>
+        <p>A team project for a Computer Vision course, comparing a classical feature-based pipeline with deep learning on the GenImage dataset. My part: the statistical analysis of the images before resizing, and the data augmentation.</p>
+        <ul class="tags"><li>Computer vision</li><li>Data augmentation</li><li>CNN</li><li>GenImage</li></ul>
+        <div class="pl"><a href="https://github.com/larissa-acosta/ml-portfolio/tree/main/projects/ai-generated-image-detection">Notebook</a></div>
+      </div>
+    </article>
+
+    <article class="project wip">
+      <div>
+        <span class="badge">In progress</span>
+      </div>
+      <div>
+        <h3>Portuguese RAG assistant for Brazilian digital law</h3>
+        <p>Question answering over the LGPD, the Marco Civil da Internet and the Consumer Defense Code, with citations to the exact article. It will include a retrieval evaluation, not just a demo.</p>
+        <ul class="tags"><li>RAG</li><li>Embeddings</li><li>LLMs</li><li>Portuguese</li></ul>
+        <div class="pl"><a href="https://github.com/larissa-acosta/ml-portfolio/tree/main/projects/legal-rag-pt">Code so far</a></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About</h2>
+    <p>I study Computer Science at PUCPR and do research in machine learning. I care about evaluation done right: no leakage, honest baselines, and statistical tests when the differences are small.</p>
+    <p>I'm looking for an internship in generative AI, where I can combine that rigor with building applications that people use.</p>
+  </section>
+  </main>
+
+  <footer>© 2026 Larissa Cristina Alves da Costa</footer>
+</div>
+
+<script>
+(function(){
+  // Deterministic synthetic series (illustration only)
+  var W=900,H=220,P=14,n=220,pts=[],seed=7;
+  function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+  var spikes={62:1,63:1,64:.8,140:1,141:1.2,142:.9,143:.6,188:1};
+  for(var i=0;i<n;i++){
+    var base=.42+.16*Math.sin(i/9)+.06*Math.sin(i/3.1)+(rnd()-.5)*.08;
+    if(spikes[i])base+=.3*spikes[i];
+    pts.push(Math.max(.05,Math.min(.97,base)));
+  }
+  var thr=.72,ns='http://www.w3.org/2000/svg';
+  var svg=document.getElementById('chart');
+  function X(i){return P+i*(W-2*P)/(n-1)}
+  function Y(v){return H-P-v*(H-2*P)}
+  var d='M'+pts.map(function(v,i){return X(i).toFixed(1)+' '+Y(v).toFixed(1)}).join(' L');
+  var t=document.createElementNS(ns,'line');
+  t.setAttribute('id','thr');t.setAttribute('x1',P);t.setAttribute('x2',W-P);t.setAttribute('y1',Y(thr));t.setAttribute('y2',Y(thr));svg.appendChild(t);
+  var p=document.createElementNS(ns,'path');p.setAttribute('id','line');p.setAttribute('d',d);svg.appendChild(p);
+  p.style.setProperty('--len',Math.ceil(p.getTotalLength()));
+  var k=0;
+  pts.forEach(function(v,i){
+    if(v>thr){
+      var c=document.createElementNS(ns,'circle');
+      c.setAttribute('class','dot');c.setAttribute('cx',X(i));c.setAttribute('cy',Y(v));c.setAttribute('r',4);
+      c.style.animationDelay=(1.2+k*.12)+'s';k++;svg.appendChild(c);
+    }
+  });
+})();
+</script>
+</body>
+</html>
